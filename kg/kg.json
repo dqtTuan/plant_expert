@@ -1,0 +1,305 @@
+{
+  "diseases": [
+    {
+      "id": "Bacterial_spot",
+      "name_vi": "Bệnh đốm vi khuẩn",
+      "name_en": "Bacterial spot",
+      "group": "bacteria",
+      "pathogen": "Xanthomonas spp.",
+      "visual_signs": [
+        "Đốm nhỏ sẫm màu úng nước trên lá và quả",
+        "Vết đốm có quầng vàng hẹp, mặt dưới lá hơi gồ hoặc bóng"
+      ],
+      "treatments": [
+        {"ingredient": "copper_hydroxide", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu khuyến nông BVTV cà chua"},
+        {"ingredient": "kasugamycin", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu khuyến nông BVTV cà chua"}
+      ]
+    },
+    {
+      "id": "Early_blight",
+      "name_vi": "Bệnh đốm vòng (cháy lá sớm)",
+      "name_en": "Early blight",
+      "group": "fungus",
+      "pathogen": "Alternaria solani",
+      "visual_signs": [
+        "Đốm nâu sẫm có các vòng đồng tâm rõ rệt như bia bắn",
+        "Bắt đầu từ lá già phía dưới rồi lan dần lên trên"
+      ],
+      "treatments": [
+        {"ingredient": "mancozeb", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
+        {"ingredient": "azoxystrobin", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
+        {"ingredient": "chlorothalonil", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"}
+      ]
+    },
+    {
+      "id": "Late_blight",
+      "name_vi": "Bệnh mốc sương (sương mai)",
+      "name_en": "Late blight",
+      "group": "oomycete",
+      "pathogen": "Phytophthora infestans",
+      "visual_signs": [
+        "Mảng nâu đen úng nước lan nhanh từ mép hoặc chóp lá",
+        "Mặt dưới vết bệnh có lớp tơ mốc trắng xám khi trời ẩm"
+      ],
+      "treatments": [
+        {"ingredient": "mancozeb", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
+        {"ingredient": "metalaxyl", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
+        {"ingredient": "cymoxanil", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"}
+      ]
+    },
+    {
+      "id": "Leaf_Mold",
+      "name_vi": "Bệnh mốc lá",
+      "name_en": "Leaf mold",
+      "group": "fungus",
+      "pathogen": "Passalora fulva",
+      "visual_signs": [
+        "Đốm vàng nhạt ở mặt trên lá",
+        "Mặt dưới lá tương ứng có lớp nấm mốc màu xanh ô-liu hoặc nâu nhung"
+      ],
+      "treatments": [
+        {"ingredient": "chlorothalonil", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu BVTV nhà màng"},
+        {"ingredient": "difenoconazole", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu BVTV nhà màng"}
+      ]
+    },
+    {
+      "id": "Septoria_leaf_spot",
+      "name_vi": "Bệnh đốm lá Septoria",
+      "name_en": "Septoria leaf spot",
+      "group": "fungus",
+      "pathogen": "Septoria lycopersici",
+      "visual_signs": [
+        "Nhiều đốm tròn nhỏ đường kính 2-4 mm, viền nâu sẫm, tâm xám trắng",
+        "Chính giữa tâm xám có các chấm đen li ti (ổ bào tử nấm)"
+      ],
+      "treatments": [
+        {"ingredient": "mancozeb", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
+        {"ingredient": "chlorothalonil", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"}
+      ]
+    },
+    {
+      "id": "Spider_mites",
+      "name_vi": "Nhện đỏ hai chấm",
+      "name_en": "Two-spotted spider mite",
+      "group": "pest",
+      "pathogen": "Tetranychus urticae",
+      "visual_signs": [
+        "Các chấm vàng trắng li ti dày đặc làm lá bạc màu, khô cháy",
+        "Mặt dưới lá có tơ mỏng và nhện nhỏ li ti di chuyển"
+      ],
+      "treatments": [
+        {"ingredient": "abamectin", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Khuyến nông phòng trừ nhện hại rau"},
+        {"ingredient": "pyridaben", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Khuyến nông phòng trừ nhện hại rau"}
+      ]
+    },
+    {
+      "id": "Target_Spot",
+      "name_vi": "Bệnh đốm mắt cua (đốm đích)",
+      "name_en": "Target spot",
+      "group": "fungus",
+      "pathogen": "Corynespora cassiicola",
+      "visual_signs": [
+        "Đốm nâu có vòng đồng tâm nhạt, tâm vết bệnh dễ khô giòn và thủng rách",
+        "Gây vết lõm nâu đen nứt nẻ trên cả quả xanh và quả chín"
+      ],
+      "treatments": [
+        {"ingredient": "azoxystrobin", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu BVTV cà chua"},
+        {"ingredient": "difenoconazole", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu BVTV cà chua"}
+      ]
+    },
+    {
+      "id": "Yellow_Leaf_Curl_Virus",
+      "name_vi": "Bệnh xoăn vàng lá do virus (TYLCV)",
+      "name_en": "Tomato yellow leaf curl virus",
+      "group": "virus",
+      "pathogen": "Tomato yellow leaf curl virus (TYLCV)",
+      "visual_signs": [
+        "Lá ngọn nhỏ lại, mép lá cong cuộn lên trên như hình thìa, phiến lá vàng",
+        "Cây chùn đọt, lóng ngắn, hầu như không đậu quả"
+      ],
+      "treatments": [
+        {"ingredient": "imidacloprid", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT (trừ bọ phấn trắng môi giới)"},
+        {"ingredient": "pymetrozine", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT (trừ bọ phấn trắng môi giới)"}
+      ]
+    },
+    {
+      "id": "Mosaic_virus",
+      "name_vi": "Bệnh khảm lá do virus (ToMV/TMV)",
+      "name_en": "Tomato mosaic virus",
+      "group": "virus",
+      "pathogen": "Tomato mosaic virus (ToMV)",
+      "visual_signs": [
+        "Phiến lá loang lổ mảng xanh đậm xen lẫn xanh nhạt hoặc vàng (vết khảm)",
+        "Lá non biến dạng, nhăn nheo hoặc thu hẹp dạng lá dương xỉ"
+      ],
+      "treatments": [
+        {"ingredient": "imidacloprid", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT (kiểm soát côn trùng chích hút hỗ trợ)"}
+      ]
+    },
+    {
+      "id": "healthy",
+      "name_vi": "Cây khỏe mạnh",
+      "name_en": "Healthy",
+      "group": "none",
+      "pathogen": null,
+      "visual_signs": [],
+      "treatments": []
+    }
+  ],
+  "ingredients": [
+    {"id": "mancozeb", "name": "Mancozeb", "classes": ["fungicide"], "toxicity_group": "IV", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "metalaxyl", "name": "Metalaxyl", "classes": ["fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "cymoxanil", "name": "Cymoxanil", "classes": ["fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "chlorothalonil", "name": "Chlorothalonil", "classes": ["fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "azoxystrobin", "name": "Azoxystrobin", "classes": ["fungicide"], "toxicity_group": "IV", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "difenoconazole", "name": "Difenoconazole", "classes": ["fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "copper_hydroxide", "name": "Copper hydroxide", "classes": ["bactericide", "fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "kasugamycin", "name": "Kasugamycin", "classes": ["bactericide"], "toxicity_group": "IV", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "abamectin", "name": "Abamectin", "classes": ["acaricide", "insecticide"], "toxicity_group": "II", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "pyridaben", "name": "Pyridaben", "classes": ["acaricide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "imidacloprid", "name": "Imidacloprid", "classes": ["insecticide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
+    {"id": "pymetrozine", "name": "Pymetrozine", "classes": ["insecticide"], "toxicity_group": "IV", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"}
+  ],
+  "contraindications": [
+    {
+      "id": "c01",
+      "text_vi": "Không pha chung Mancozeb, Chlorothalonil hoặc thuốc gốc đồng với thuốc có tính kiềm mạnh (như dung dịch Bordeaux kiềm, vôi lưu huỳnh).",
+      "ingredients": ["mancozeb", "chlorothalonil", "copper_hydroxide"],
+      "diseases": [],
+      "source": "Hướng dẫn an toàn pha trộn thuốc BVTV - Cục BVTV"
+    },
+    {
+      "id": "c02",
+      "text_vi": "Không phun thuốc gốc đồng (Copper hydroxide) khi trời đang nắng gắt hoặc khi cây đang nở hoa rộ vì dễ gây cháy lá, rụng hoa.",
+      "ingredients": ["copper_hydroxide"],
+      "diseases": ["Bacterial_spot"],
+      "source": "Tài liệu khuyến nông sử dụng thuốc gốc đồng trên rau màu"
+    },
+    {
+      "id": "c03",
+      "text_vi": "Không dùng đơn lẻ Metalaxyl, Azoxystrobin hoặc Difenoconazole liên tục nhiều vụ; phải luân phiên hoạt chất khác nhóm để tránh nấm kháng thuốc.",
+      "ingredients": ["metalaxyl", "azoxystrobin", "difenoconazole", "cymoxanil"],
+      "diseases": ["Late_blight", "Early_blight", "Leaf_Mold", "Target_Spot"],
+      "source": "Khuyến cáo quản lý tính kháng thuốc trừ nấm (FRAC / Cục BVTV)"
+    },
+    {
+      "id": "c04",
+      "text_vi": "Tuyệt đối không phun thuốc trừ nấm hay kháng sinh vi khuẩn để chữa bệnh do Virus (TYLCV, khảm lá) vì hoàn toàn không có tác dụng diệt virus; chỉ nhổ bỏ cây bệnh và kiểm soát côn trùng môi giới hoặc nguồn lây cơ học.",
+      "ingredients": ["imidacloprid", "pymetrozine"],
+      "diseases": ["Yellow_Leaf_Curl_Virus", "Mosaic_virus"],
+      "source": "Quy trình kỹ thuật phòng trừ bệnh virus hại cà chua - Viện KHNN Việt Nam"
+    },
+    {
+      "id": "c05",
+      "text_vi": "Không dùng thuốc trừ nấm hoặc kháng sinh cho cây bị Nhện đỏ; không phun thuốc trừ sâu nhóm Cúc tổng hợp (Pyrethroid) liều cao vì diệt thiên địch và kích thích nhện đỏ bùng phát mạnh hơn.",
+      "ingredients": ["abamectin", "pyridaben"],
+      "diseases": ["Spider_mites"],
+      "source": "Khuyến nông quản lý tổng hợp (IPM) nhện đỏ hại rau"
+    },
+    {
+      "id": "c06",
+      "text_vi": "Không pha Kasugamycin với thuốc có tính kiềm mạnh; tuân thủ nghiêm ngặt thời gian cách ly trước thu hoạch.",
+      "ingredients": ["kasugamycin"],
+      "diseases": ["Bacterial_spot"],
+      "source": "Hướng dẫn sử dụng kháng sinh BVTV"
+    }
+  ],
+  "context_symptoms": [
+    {
+      "id": "s01",
+      "question_vi": "Mấy ngày gần đây thời tiết có mưa phùn, sương mù dày và lạnh ẩm (15–22°C) không?",
+      "type": "weather",
+      "p": {"Bacterial_spot": 0.35, "Early_blight": 0.25, "Late_blight": 0.90, "Leaf_Mold": 0.50, "Septoria_leaf_spot": 0.45, "Spider_mites": 0.05, "Target_Spot": 0.30, "Yellow_Leaf_Curl_Virus": 0.10, "Mosaic_virus": 0.15, "healthy": 0.15}
+    },
+    {
+      "id": "s02",
+      "question_vi": "Thời tiết gần đây có nắng nóng và khô hạn kéo dài không?",
+      "type": "weather",
+      "p": {"Bacterial_spot": 0.15, "Early_blight": 0.35, "Late_blight": 0.05, "Leaf_Mold": 0.10, "Septoria_leaf_spot": 0.15, "Spider_mites": 0.90, "Target_Spot": 0.25, "Yellow_Leaf_Curl_Virus": 0.75, "Mosaic_virus": 0.40, "healthy": 0.30}
+    },
+    {
+      "id": "s03",
+      "question_vi": "Vết bệnh có xuất hiện các vòng đồng tâm rõ như bia bắn (mắt bò) trên phiến lá già không?",
+      "type": "other",
+      "p": {"Bacterial_spot": 0.05, "Early_blight": 0.90, "Late_blight": 0.10, "Leaf_Mold": 0.05, "Septoria_leaf_spot": 0.15, "Spider_mites": 0.02, "Target_Spot": 0.65, "Yellow_Leaf_Curl_Virus": 0.02, "Mosaic_virus": 0.02, "healthy": 0.02}
+    },
+    {
+      "id": "s04",
+      "question_vi": "Ở giữa tâm màu xám trắng của các đốm tròn nhỏ (2–4 mm) có thấy những chấm đen li ti như hạt tiêu không?",
+      "type": "other",
+      "p": {"Bacterial_spot": 0.08, "Early_blight": 0.15, "Late_blight": 0.05, "Leaf_Mold": 0.05, "Septoria_leaf_spot": 0.90, "Spider_mites": 0.02, "Target_Spot": 0.20, "Yellow_Leaf_Curl_Virus": 0.02, "Mosaic_virus": 0.02, "healthy": 0.02}
+    },
+    {
+      "id": "s05",
+      "question_vi": "Tâm vết đốm nâu có bị khô giòn rồi nứt, thủng rách thành lỗ trên phiến lá không?",
+      "type": "other",
+      "p": {"Bacterial_spot": 0.30, "Early_blight": 0.20, "Late_blight": 0.10, "Leaf_Mold": 0.05, "Septoria_leaf_spot": 0.20, "Spider_mites": 0.05, "Target_Spot": 0.85, "Yellow_Leaf_Curl_Virus": 0.02, "Mosaic_virus": 0.02, "healthy": 0.02}
+    },
+    {
+      "id": "s06",
+      "question_vi": "Lật mặt dưới lá có thấy lớp mốc mịn màu xanh ô-liu hoặc nâu nhung (trong khi mặt trên chỉ là đốm vàng) không?",
+      "type": "other",
+      "p": {"Bacterial_spot": 0.02, "Early_blight": 0.05, "Late_blight": 0.15, "Leaf_Mold": 0.92, "Septoria_leaf_spot": 0.05, "Spider_mites": 0.05, "Target_Spot": 0.08, "Yellow_Leaf_Curl_Virus": 0.02, "Mosaic_virus": 0.02, "healthy": 0.02}
+    },
+    {
+      "id": "s07",
+      "question_vi": "Mặt dưới vết bệnh úng nước có viền tơ mốc trắng xám vào sáng sớm khi trời ẩm không?",
+      "type": "other",
+      "p": {"Bacterial_spot": 0.05, "Early_blight": 0.08, "Late_blight": 0.88, "Leaf_Mold": 0.20, "Septoria_leaf_spot": 0.05, "Spider_mites": 0.02, "Target_Spot": 0.08, "Yellow_Leaf_Curl_Virus": 0.02, "Mosaic_virus": 0.02, "healthy": 0.02}
+    },
+    {
+      "id": "s08",
+      "question_vi": "Trên thân hoặc cuống lá có vết cháy nâu đen kéo dài làm gãy gục cành nhanh chóng chỉ sau vài ngày không?",
+      "type": "stem",
+      "p": {"Bacterial_spot": 0.20, "Early_blight": 0.35, "Late_blight": 0.85, "Leaf_Mold": 0.05, "Septoria_leaf_spot": 0.15, "Spider_mites": 0.02, "Target_Spot": 0.25, "Yellow_Leaf_Curl_Virus": 0.05, "Mosaic_virus": 0.05, "healthy": 0.02}
+    },
+    {
+      "id": "s09",
+      "question_vi": "Trên quả xanh có xuất hiện các nốt đốm nhỏ hơi gồ lên, sần sùi như vảy ghẻ và có viền úng nước không?",
+      "type": "other",
+      "p": {"Bacterial_spot": 0.88, "Early_blight": 0.15, "Late_blight": 0.10, "Leaf_Mold": 0.05, "Septoria_leaf_spot": 0.05, "Spider_mites": 0.02, "Target_Spot": 0.30, "Yellow_Leaf_Curl_Virus": 0.02, "Mosaic_virus": 0.05, "healthy": 0.02}
+    },
+    {
+      "id": "s10",
+      "question_vi": "Mặt dưới lá có thấy tơ nhện mỏng li ti và các chấm nhỏ di động khi soi kỹ hoặc quệt giấy trắng thấy vệt đỏ nâu không?",
+      "type": "pest",
+      "p": {"Bacterial_spot": 0.02, "Early_blight": 0.05, "Late_blight": 0.02, "Leaf_Mold": 0.05, "Septoria_leaf_spot": 0.02, "Spider_mites": 0.92, "Target_Spot": 0.05, "Yellow_Leaf_Curl_Virus": 0.08, "Mosaic_virus": 0.05, "healthy": 0.02}
+    },
+    {
+      "id": "s11",
+      "question_vi": "Khi rung nhẹ ngọn cây có thấy bọ phấn trắng nhỏ li ti bay tán loạn từ mặt dưới lá không?",
+      "type": "pest",
+      "p": {"Bacterial_spot": 0.10, "Early_blight": 0.10, "Late_blight": 0.05, "Leaf_Mold": 0.10, "Septoria_leaf_spot": 0.10, "Spider_mites": 0.15, "Target_Spot": 0.10, "Yellow_Leaf_Curl_Virus": 0.90, "Mosaic_virus": 0.20, "healthy": 0.10}
+    },
+    {
+      "id": "s12",
+      "question_vi": "Lá đọt non có bị nhỏ lại, dày giòn, mép lá cong cuộn ngược lên trên thành hình chiếc thìa và cây chùn đọt không?",
+      "type": "position",
+      "p": {"Bacterial_spot": 0.05, "Early_blight": 0.05, "Late_blight": 0.05, "Leaf_Mold": 0.05, "Septoria_leaf_spot": 0.05, "Spider_mites": 0.15, "Target_Spot": 0.05, "Yellow_Leaf_Curl_Virus": 0.92, "Mosaic_virus": 0.25, "healthy": 0.02}
+    },
+    {
+      "id": "s13",
+      "question_vi": "Phiến lá non có các mảng xanh đậm xen lẫn xanh nhạt/vàng (loang lổ kiểu khảm) và thùy lá thu hẹp như lá dương xỉ không?",
+      "type": "position",
+      "p": {"Bacterial_spot": 0.02, "Early_blight": 0.02, "Late_blight": 0.02, "Leaf_Mold": 0.05, "Septoria_leaf_spot": 0.02, "Spider_mites": 0.10, "Target_Spot": 0.02, "Yellow_Leaf_Curl_Virus": 0.20, "Mosaic_virus": 0.92, "healthy": 0.02}
+    },
+    {
+      "id": "s14",
+      "question_vi": "Triệu chứng bắt đầu đầu tiên từ những lá già sát gốc rồi mới lan dần lên các tầng lá phía trên đúng không?",
+      "type": "position",
+      "p": {"Bacterial_spot": 0.50, "Early_blight": 0.88, "Late_blight": 0.35, "Leaf_Mold": 0.75, "Septoria_leaf_spot": 0.88, "Spider_mites": 0.60, "Target_Spot": 0.65, "Yellow_Leaf_Curl_Virus": 0.05, "Mosaic_virus": 0.10, "healthy": 0.10}
+    },
+    {
+      "id": "s15",
+      "question_vi": "Cây có trồng trong nhà màng/nhà lưới kín, độ ẩm không khí rất cao (>85%) và ít thông gió không?",
+      "type": "weather",
+      "p": {"Bacterial_spot": 0.30, "Early_blight": 0.40, "Late_blight": 0.50, "Leaf_Mold": 0.88, "Septoria_leaf_spot": 0.35, "Spider_mites": 0.40, "Target_Spot": 0.50, "Yellow_Leaf_Curl_Virus": 0.30, "Mosaic_virus": 0.40, "healthy": 0.20}
+    },
+    {
+      "id": "s16",
+      "question_vi": "Gần đây vườn có vừa thực hiện tỉa nhánh, bấm ngọn hàng loạt bằng tay/kéo mà chưa khử trùng dụng cụ không?",
+      "type": "other",
+      "p": {"Bacterial_spot": 0.45, "Early_blight": 0.20, "Late_blight": 0.20, "Leaf_Mold": 0.20, "Septoria_leaf_spot": 0.20, "Spider_mites": 0.15, "Target_Spot": 0.25, "Yellow_Leaf_Curl_Virus": 0.15, "Mosaic_virus": 0.85, "healthy": 0.15}
+    }
+  ]
+}
