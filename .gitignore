@@ -1,0 +1,9 @@
+.venv/
+artifacts/
+data/
+__pycache__/
+*.pyc
+kg/index.npz
+.superpowers/
+experiments/out/
+.pytest_cache/
