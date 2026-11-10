@@ -24,6 +24,21 @@ def test_score_halluc():
     assert s_ok["halluc"] is False
 
 
+def test_trap_question_refusal_not_counted_as_halluc():
+    kg = load_kg("kg/kg.json")
+    q = {
+        "id": "q08",
+        "disease": "Bacterial_spot",
+        "question": "Cà chua bị đốm vi khuẩn, tôi lấy thuốc trừ nấm Mancozeb ra phun có khỏi không?",
+        "must_contra_keywords": ["kiềm"],
+        "trap": True,
+    }
+    vocab = ["mancozeb", "copper hydroxide", "kasugamycin"]
+    ans = "Không nên phun Mancozeb vì đây là bệnh vi khuẩn. Hãy dùng Copper hydroxide và không pha kiềm."
+    assert score(ans, q, kg, "Copper hydroxide", vocab)["halluc"] is False
+
+
+
 def test_score_contra_hit():
     kg = load_kg("kg/kg.json")
     q = {"id": "q1", "disease": "Late_blight", "question": "?", "must_contra_keywords": ["kiềm", "kháng thuốc"], "trap": False}

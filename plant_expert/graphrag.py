@@ -48,7 +48,7 @@ def subgraph(G: nx.MultiDiGraph, disease_id: str, hops: int = 2) -> nx.MultiDiGr
     root = f"disease:{disease_id}"
     if root not in G:
         return nx.MultiDiGraph()
-    ego = nx.ego_graph(G.to_undirected(), root, radius=hops)
+    ego = nx.ego_graph(G, root, radius=hops)
     keep = [n for n in ego.nodes if not n.startswith("context:")]
     return G.subgraph(keep).copy()
 
@@ -111,6 +111,11 @@ class VectorIndex:
         if len(self.chunks) == 0:
             return []
         qv = embed([query])[0]
+        if qv.shape[0] != self.vecs.shape[1]:
+            raise OllamaError(
+                f"Kích thước vector truy vấn ({qv.shape[0]}) khác chỉ mục ({self.vecs.shape[1]}). "
+                "Hãy chạy lại `python scripts/build_index.py` sau khi bật Ollama."
+            )
         scores = self.vecs @ qv
         top = np.argsort(-scores)[:k]
         return [self.chunks[int(i)] for i in top]

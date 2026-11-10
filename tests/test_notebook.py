@@ -33,3 +33,5 @@ def test_notebook_writes_expected_artifacts():
     raw = NB_PATH.read_text(encoding="utf-8")
     for name in EXPECTED_ARTIFACTS:
         assert name in raw, f"missing artifact {name} in notebook"
+    assert "np.trapz(" not in raw, "np.trapz removed in NumPy 2.0+; use np.trapezoid"
+

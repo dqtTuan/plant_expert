@@ -21,7 +21,8 @@ def score(answer: str, q: dict, kg: dict, context: str, vocab: list[str]) -> dic
     ing_name_by_id = {i["id"]: i["name"].casefold() for i in kg["ingredients"]}
     valid = {ing_name_by_id[t["ingredient"]] for t in d_obj.get("treatments", [])}
     mentioned = mentioned_ingredients(answer, vocab)
-    halluc = any(m not in valid for m in mentioned)
+    in_question = mentioned_ingredients(q.get("question", ""), vocab)
+    halluc = any(m not in valid for m in (mentioned - in_question))
     low_ans = answer.casefold()
     contra_hit = all(kw.casefold() in low_ans for kw in q.get("must_contra_keywords", []))
     if not mentioned:

@@ -40,6 +40,17 @@ def test_subgraph_excludes_context_nodes(kg):
     G = build_graph(kg)
     sub = subgraph(G, "Late_blight", hops=2)
     assert not any(n.startswith("context:") for n in sub.nodes)
+    assert [n for n in sub.nodes if n.startswith("disease:")] == ["disease:Late_blight"]
+
+
+def test_index_dim_mismatch_raises_ollama_error(tmp_path):
+    mdir = tmp_path / "manual"
+    mdir.mkdir()
+    (mdir / "Late_blight.md").write_text("Đoạn 1\n\nĐoạn 2\n\nĐoạn 3", encoding="utf-8")
+    idx = VectorIndex.build(str(mdir), embed=fake_embed)
+    with pytest.raises(OllamaError):
+        idx.search("mốc sương", k=1, embed=lambda ts: np.ones((len(ts), 64)))
+
 
 
 def test_facts_has_warning_and_label_fallback(kg):

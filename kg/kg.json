@@ -163,7 +163,7 @@
   "contraindications": [
     {
       "id": "c01",
-      "text_vi": "Không pha chung Mancozeb, Chlorothalonil hoặc thuốc gốc đồng với thuốc có tính kiềm mạnh (như dung dịch Bordeaux kiềm, vôi lưu huỳnh).",
+      "text_vi": "Không pha chung hoạt chất này với thuốc có tính kiềm mạnh (như dung dịch Bordeaux kiềm, vôi lưu huỳnh).",
       "ingredients": ["mancozeb", "chlorothalonil", "copper_hydroxide"],
       "diseases": [],
       "source": "Hướng dẫn an toàn pha trộn thuốc BVTV - Cục BVTV"
@@ -177,7 +177,7 @@
     },
     {
       "id": "c03",
-      "text_vi": "Không dùng đơn lẻ Metalaxyl, Azoxystrobin hoặc Difenoconazole liên tục nhiều vụ; phải luân phiên hoạt chất khác nhóm để tránh nấm kháng thuốc.",
+      "text_vi": "Không phun đơn lẻ hoạt chất nội hấp này liên tục nhiều lần trong vụ; phải luân phiên hoạt chất khác nhóm tác động để tránh nấm kháng thuốc.",
       "ingredients": ["metalaxyl", "azoxystrobin", "difenoconazole", "cymoxanil"],
       "diseases": ["Late_blight", "Early_blight", "Leaf_Mold", "Target_Spot"],
       "source": "Khuyến cáo quản lý tính kháng thuốc trừ nấm (FRAC / Cục BVTV)"
