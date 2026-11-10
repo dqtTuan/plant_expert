@@ -9,7 +9,7 @@ python -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
 ```
 
-Cài đặt **Ollama** (`https://ollama.com`) để chạy mô hình ngôn ngữ lớn và mô hình embedding hoàn toàn offline trên GPU RTX 4060:
+Cài đặt **Ollama** (`https://ollama.com`) để chạy mô hình ngôn ngữ lớn và mô hình embedding hoàn toàn offline trên:
 
 ```powershell
 ollama pull qwen2.5:7b-instruct
