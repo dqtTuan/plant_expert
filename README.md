@@ -1,4 +1,4 @@
-# Hệ thống Chẩn đoán Bệnh Cà chua Đa phương thức (MC Dropout + Active Bayes + GraphRAG)
+# Hệ thống Chẩn đoán Đa phương thức (MC Dropout + Active Bayes + GraphRAG)
 
 Đồ án môn **Học máy Nâng cao**: kết hợp ước lượng độ bất định nhận thức bằng **Monte Carlo Dropout**, hỏi đáp triệu chứng phụ theo **Information Gain & cập nhật hậu nghiệm Bayes**, và tư vấn phác đồ điều trị qua **Đồ thị Tri thức Nông nghiệp (Agricultural GraphRAG)**.
 
