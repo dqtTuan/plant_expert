@@ -73,7 +73,6 @@ with col_left:
             st.session_state["file_key"] = file_key
             st.session_state["img"] = img
             st.session_state["diag"] = diag
-            st.session_state["prior_cand"] = None
             st_init = bayes.start(diag["p_mean"], diag["H"], tau)
             st.session_state["state"] = st_init
             st.session_state["prior_post"] = st_init.post.copy()
@@ -103,16 +102,10 @@ with col_left:
             with st.chat_message("assistant"):
                 st.write(sym_by_idx[q_idx]["question_vi"])
                 st.caption("Lưu ý: Trọng số P(s|c) dùng để cập nhật Bayes là ước lượng chuyên gia.")
-                b1, b2, b3 = st.columns(3)
-                if b1.button("Có", key=f"yes_{q_idx}_{len(st_cur.asked)}"):
-                    st.session_state["state"] = bayes.answer(st_cur, q_idx, "yes", L)
-                    st.rerun()
-                if b2.button("Không", key=f"no_{q_idx}_{len(st_cur.asked)}"):
-                    st.session_state["state"] = bayes.answer(st_cur, q_idx, "no", L)
-                    st.rerun()
-                if b3.button("Không rõ", key=f"unk_{q_idx}_{len(st_cur.asked)}"):
-                    st.session_state["state"] = bayes.answer(st_cur, q_idx, "unknown", L)
-                    st.rerun()
+                for col, (lbl, code) in zip(st.columns(3), (("Có", "yes"), ("Không", "no"), ("Không rõ", "unknown"))):
+                    if col.button(lbl, key=f"{code}_{q_idx}_{len(st_cur.asked)}"):
+                        st.session_state["state"] = bayes.answer(st_cur, q_idx, code, L)
+                        st.rerun()
         else:
             cls_idx, prob, confirmed = bayes.final(st_cur)
             final_id = classes[cls_idx]

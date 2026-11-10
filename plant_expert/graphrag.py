@@ -62,7 +62,7 @@ def facts(sub: nx.MultiDiGraph, disease_id: str) -> list[str]:
     for u, v, data in sub.edges(data=True):
         rel = data.get("rel")
         if u == root and rel == "CAUSED_BY":
-            out.append(f"Bệnh {d_label} do tác nhân {sub.nodes[v]['label']} gây ra.")
+            out.append(f"{d_label} do tác nhân {sub.nodes[v]['label']} gây ra.")
         elif u == root and rel == "HAS_VISUAL_SIGN":
             out.append(f"Triệu chứng nhận diện của {d_label}: {sub.nodes[v]['label']}.")
         elif u == root and rel == "TREATED_BY":
