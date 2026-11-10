@@ -1,0 +1,27 @@
+{
+  "diseases": [
+    {"id": "Bacterial_spot", "name_vi": "Đốm vi khuẩn", "name_en": "Bacterial spot", "group": "bacteria", "pathogen": "Xanthomonas spp.", "visual_signs": ["Đốm nhỏ úng nước"], "treatments": []},
+    {"id": "Early_blight", "name_vi": "Bệnh đốm vòng sớm", "name_en": "Early blight", "group": "fungus", "pathogen": "Alternaria solani", "visual_signs": ["Vết vòng đồng tâm"], "treatments": []},
+    {"id": "Late_blight", "name_vi": "Bệnh mốc sương", "name_en": "Late blight", "group": "oomycete", "pathogen": "Phytophthora infestans", "visual_signs": ["Vết nâu đen úng nước từ mép lá"],
+     "treatments": [{"ingredient": "mancozeb", "dose": null, "phi_days": 7, "source": "test"}]},
+    {"id": "Leaf_Mold", "name_vi": "Mốc lá", "name_en": "Leaf mold", "group": "fungus", "pathogen": "Passalora fulva", "visual_signs": ["Mốc ô liu mặt dưới lá"], "treatments": []},
+    {"id": "Septoria_leaf_spot", "name_vi": "Đốm lá Septoria", "name_en": "Septoria leaf spot", "group": "fungus", "pathogen": "Septoria lycopersici", "visual_signs": ["Đốm tròn tâm xám"], "treatments": []},
+    {"id": "Spider_mites", "name_vi": "Nhện đỏ", "name_en": "Spider mites", "group": "pest", "pathogen": "Tetranychus urticae", "visual_signs": ["Chấm vàng li ti"], "treatments": []},
+    {"id": "Target_Spot", "name_vi": "Đốm mắt cua", "name_en": "Target spot", "group": "fungus", "pathogen": "Corynespora cassiicola", "visual_signs": ["Đốm nâu có vòng"], "treatments": []},
+    {"id": "Yellow_Leaf_Curl_Virus", "name_vi": "Xoăn vàng lá", "name_en": "Tomato yellow leaf curl virus", "group": "virus", "pathogen": "TYLCV", "visual_signs": ["Lá xoăn vàng"], "treatments": []},
+    {"id": "Mosaic_virus", "name_vi": "Khảm lá", "name_en": "Tomato mosaic virus", "group": "virus", "pathogen": "ToMV", "visual_signs": ["Khảm xanh vàng"], "treatments": []},
+    {"id": "healthy", "name_vi": "Cây khỏe", "name_en": "Healthy", "group": "none", "pathogen": null, "visual_signs": [], "treatments": []}
+  ],
+  "ingredients": [
+    {"id": "mancozeb", "name": "Mancozeb", "classes": ["fungicide"], "toxicity_group": "III", "source": "test"}
+  ],
+  "contraindications": [
+    {"id": "c01", "text_vi": "Không pha chung với thuốc có tính kiềm", "ingredients": ["mancozeb"], "diseases": [], "source": "test"}
+  ],
+  "context_symptoms": [
+    {"id": "s01", "question_vi": "Trời có sương mù, ẩm lạnh mấy ngày qua không?", "type": "weather",
+     "p": {"Bacterial_spot": 0.5, "Early_blight": 0.3, "Late_blight": 0.9, "Leaf_Mold": 0.6, "Septoria_leaf_spot": 0.4, "Spider_mites": 0.05, "Target_Spot": 0.4, "Yellow_Leaf_Curl_Virus": 0.1, "Mosaic_virus": 0.1, "healthy": 0.2}},
+    {"id": "s02", "question_vi": "Mặt dưới lá có bọ phấn trắng không?", "type": "pest",
+     "p": {"Bacterial_spot": 0.1, "Early_blight": 0.1, "Late_blight": 0.1, "Leaf_Mold": 0.1, "Septoria_leaf_spot": 0.1, "Spider_mites": 0.1, "Target_Spot": 0.1, "Yellow_Leaf_Curl_Virus": 0.9, "Mosaic_virus": 0.2, "healthy": 0.1}}
+  ]
+}

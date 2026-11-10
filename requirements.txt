@@ -1,0 +1,13 @@
+torch
+torchvision
+numpy
+pandas
+networkx
+streamlit
+plotly
+pyvis
+pillow
+scikit-learn
+matplotlib
+pytest
+nbformat
