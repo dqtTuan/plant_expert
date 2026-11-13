@@ -8,7 +8,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import plant_expert  # noqa: E402, F401
 import pandas as pd
 
-from plant_expert.graphrag import VectorIndex, advise, ollama_embed, ollama_generate
+from plant_expert.graphrag import (
+    OllamaError,
+    VectorIndex,
+    advise,
+    char_ngram_embed,
+    ollama_embed,
+    ollama_generate,
+)
 from plant_expert.kg import build_graph, load_kg
 
 
@@ -58,12 +65,23 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
     ans_file = out_dir / "exp3_answers.jsonl"
 
+    gen_fn, emb_fn = ollama_generate, ollama_embed
+    if args.allow_fallback:
+        try:
+            ollama_embed(["ping"])
+        except OllamaError:
+            def gen_fn(_prompt):
+                raise OllamaError("Ollama offline")
+            emb_fn = char_ngram_embed
+            if idx.vecs.shape[1] != 256 and Path("kg/manual").exists():
+                idx = VectorIndex.build("kg/manual", embed=char_ngram_embed)
+
     rows = []
     with open(ans_file, "w", encoding="utf-8") as f:
         for mode in ("llm", "naive", "graph"):
             for q in questions:
                 res = advise(q["question"], q["disease"], kg, G, idx, mode=mode,
-                             generate=ollama_generate, embed=ollama_embed, allow_fallback=args.allow_fallback)
+                             generate=gen_fn, embed=emb_fn, allow_fallback=args.allow_fallback)
                 sc = score(res["answer"], q, kg, res["context"], vocab)
                 rec = {"mode": mode, "id": q["id"], "disease": q["disease"], "trap": q["trap"],
                        "answer": res["answer"], **sc}
