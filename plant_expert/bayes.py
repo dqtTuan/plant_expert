@@ -51,7 +51,7 @@ def start(p: np.ndarray, H: float, tau: float, k: int = 3) -> State:
 
 
 def is_done(st: State, conf: float = 0.85, max_q: int = 3) -> bool:
-    return (not st.gated) or st.post.max() >= conf or len(st.asked) >= max_q
+    return (not st.gated) or (len(st.asked) > 0 and st.post.max() >= conf) or len(st.asked) >= max_q
 
 
 def next_question(st: State, L: np.ndarray, strategy: str = "ig", rng: np.random.Generator | None = None) -> int | None:
@@ -76,7 +76,7 @@ def answer(st: State, s: int, ans: str, L: np.ndarray) -> State:
 def final(st: State) -> tuple[int, float, bool]:
     i = int(np.argmax(st.post))
     prob = float(st.post[i])
-    return int(st.cand[i]), prob, bool((not st.gated) or prob >= 0.85)
+    return int(st.cand[i]), prob, bool((not st.gated) or (len(st.asked) > 0 and prob >= 0.85))
 
 
 def run_dialogue(p, H, tau, L, answer_fn: Callable[[int], str], strategy: str = "ig",

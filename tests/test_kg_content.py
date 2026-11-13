@@ -19,6 +19,10 @@ CONFUSABLE_PAIRS = [
 def test_real_kg_valid():
     kg = load_kg(str(KG_PATH), strict_counts=True)
     assert len(kg["diseases"]) == 10
+    for d in kg["diseases"]:
+        for t in d.get("treatments", []):
+            assert t.get("dose"), f"{d['id']}/{t['ingredient']} missing reference dose"
+            assert "25/2024/TT-BNNPTNT" in t["source"], f"{d['id']}/{t['ingredient']} missing Thông tư 25/2024/TT-BNNPTNT"
 
 
 def test_each_sick_class_has_manual():

@@ -6,4 +6,5 @@ __pycache__/
 kg/index.npz
 .superpowers/
 experiments/out/
+experiments/answers_sim.csv
 .pytest_cache/

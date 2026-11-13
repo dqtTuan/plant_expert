@@ -2,6 +2,7 @@
 import json
 import urllib.error
 import urllib.request
+import zlib
 from pathlib import Path
 
 import networkx as nx
@@ -42,6 +43,19 @@ def ollama_embed(texts: list[str], model: str = "bge-m3", host: str = "http://lo
     norms = np.linalg.norm(arr, axis=1, keepdims=True)
     norms[norms == 0] = 1.0
     return arr / norms
+
+
+def char_ngram_embed(texts: list[str], dim: int = 256) -> np.ndarray:
+    """Deterministic offline 3-gram embedding fallback when Ollama bge-m3 is unavailable."""
+    vecs = np.zeros((len(texts), dim), dtype=float)
+    for i, t in enumerate(texts):
+        s = t.lower()
+        for j in range(max(len(s) - 2, 1)):
+            h = zlib.crc32(s[j:j + 3].encode("utf-8")) % dim
+            vecs[i, h] += 1.0
+        n = np.linalg.norm(vecs[i]) or 1.0
+        vecs[i] /= n
+    return vecs
 
 
 def subgraph(G: nx.MultiDiGraph, disease_id: str, hops: int = 2) -> nx.MultiDiGraph:
@@ -150,6 +164,25 @@ def build_prompt(question: str, disease_vi: str, mode: str, fact_lines: list[str
     )
 
 
+def offline_fallback_generate(disease_vi: str, mode: str, fact_lines: list[str], passages: list[str]) -> str:
+    """Synthesize deterministic Vietnamese advice without calling Ollama."""
+    if mode == "llm":
+        return f"Chẩn đoán: {disease_vi}. Cần tham khảo ý kiến kỹ sư bảo vệ thực vật và đọc kỹ nhãn thuốc trước khi phun."
+    if mode == "naive":
+        body = "\n".join(f"- {p}" for p in passages[:2]) or "Chưa tìm thấy đoạn tài liệu phù hợp."
+        return f"### Tham khảo cho {disease_vi} (Chế độ Naive RAG ngoại tuyến)\n{body}"
+    treats = [f for f in fact_lines if not f.startswith("CẢNH BÁO:")]
+    warns = [f for f in fact_lines if f.startswith("CẢNH BÁO:")]
+    parts = [f"### Phác đồ điều trị (Trích xuất trực tiếp từ Đồ thị Tri thức) — {disease_vi}"]
+    parts.extend(f"- {t}" for t in treats)
+    parts.append("\n### Cảnh báo chống chỉ định")
+    parts.extend(f"- {w}" for w in warns) if warns else parts.append("- Tuân thủ nguyên tắc 4 đúng và thời gian cách ly trên nhãn.")
+    if passages:
+        parts.append("\n### Trích đoạn cẩm nang khuyến nông")
+        parts.append(passages[0])
+    return "\n".join(parts)
+
+
 def advise(
     question: str,
     disease_id: str,
@@ -159,16 +192,35 @@ def advise(
     mode: str = "graph",
     generate=ollama_generate,
     embed=ollama_embed,
+    allow_fallback: bool = False,
 ) -> dict:
     if disease_id == "healthy":
         msg = "Cây cà chua hiện tại khỏe mạnh, không phát hiện dấu hiệu bệnh lý. Không cần phun thuốc bảo vệ thực vật; chỉ cần duy trì tưới nước, bón phân cân đối và thăm đồng định kỳ."
-        return {"answer": msg, "facts": [], "passages": [], "context": msg}
+        return {"answer": msg, "facts": [], "passages": [], "context": msg, "fallback": False}
     d_obj = next(d for d in kg["diseases"] if d["id"] == disease_id)
     disease_vi = d_obj["name_vi"]
     sub = subgraph(G, disease_id, hops=2)
     fact_lines = facts(sub, disease_id) if mode == "graph" else []
-    passages = index.search(f"{disease_vi} {question}", k=4, embed=embed) if (index is not None and mode in ("naive", "graph")) else []
+    passages: list[str] = []
+    if index is not None and mode in ("naive", "graph"):
+        q_str = f"{disease_vi} {question}"
+        try:
+            passages = index.search(q_str, k=4, embed=embed)
+        except OllamaError:
+            if not allow_fallback:
+                raise
+            if index.vecs.shape[1] == 256:
+                passages = index.search(q_str, k=4, embed=char_ngram_embed)
+            elif Path("kg/manual").exists():
+                passages = VectorIndex.build("kg/manual", embed=char_ngram_embed).search(q_str, k=4, embed=char_ngram_embed)
     context = "\n".join(fact_lines + passages)
     prompt = build_prompt(question, disease_vi, mode, fact_lines, passages)
-    ans = generate(prompt)
-    return {"answer": ans, "facts": fact_lines, "passages": passages, "context": context}
+    used_fallback = False
+    try:
+        ans = generate(prompt)
+    except OllamaError:
+        if not allow_fallback:
+            raise
+        ans = offline_fallback_generate(disease_vi, mode, fact_lines, passages)
+        used_fallback = True
+    return {"answer": ans, "facts": fact_lines, "passages": passages, "context": context, "fallback": used_fallback}

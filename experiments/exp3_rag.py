@@ -4,9 +4,10 @@ import json
 from pathlib import Path
 import sys
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import plant_expert  # noqa: E402, F401
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from plant_expert.graphrag import VectorIndex, advise, ollama_embed, ollama_generate
 from plant_expert.kg import build_graph, load_kg
 
@@ -43,6 +44,7 @@ def main():
     ap.add_argument("--questions", default="experiments/exp3_questions.json")
     ap.add_argument("--kg", default="kg/kg.json")
     ap.add_argument("--index", default="kg/index.npz")
+    ap.add_argument("--allow-fallback", action="store_true")
     args = ap.parse_args()
 
     kg = load_kg(args.kg)
@@ -61,7 +63,7 @@ def main():
         for mode in ("llm", "naive", "graph"):
             for q in questions:
                 res = advise(q["question"], q["disease"], kg, G, idx, mode=mode,
-                             generate=ollama_generate, embed=ollama_embed)
+                             generate=ollama_generate, embed=ollama_embed, allow_fallback=args.allow_fallback)
                 sc = score(res["answer"], q, kg, res["context"], vocab)
                 rec = {"mode": mode, "id": q["id"], "disease": q["disease"], "trap": q["trap"],
                        "answer": res["answer"], **sc}

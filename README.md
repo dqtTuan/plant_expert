@@ -9,7 +9,7 @@ python -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
 ```
 
-Cài đặt **Ollama** (`https://ollama.com`) để chạy mô hình ngôn ngữ lớn và mô hình embedding hoàn toàn offline trên GPU RTX 4060:
+Cài đặt **Ollama** (`https://ollama.com`) để chạy mô hình ngôn ngữ lớn và mô hình embedding hoàn toàn offline:
 
 ```powershell
 ollama pull qwen2.5:7b-instruct
@@ -18,6 +18,14 @@ ollama pull bge-m3
 ```
 
 *(Nếu chưa bật Ollama, `scripts/build_index.py` sẽ tự tạo chỉ mục dự phòng để kiểm thử nhanh).*
+
+## 1b. Khởi tạo nhanh toàn bộ dữ liệu mẫu & thực nghiệm (Chạy ngay không cần chờ Colab/Ollama)
+
+```powershell
+.venv\Scripts\python scripts/bootstrap_demo.py
+```
+
+Lệnh này tạo sẵn `artifacts/` khởi tạo, ảnh lá mẫu trong `samples/`, chỉ mục `kg/index.npz`, và chạy đầy đủ Thí nghiệm 2–3 ở chế độ ngoại tuyến trong `experiments/out/`. Khi huấn luyện thật xong trên Colab, bạn chỉ cần ghi đè `artifacts/` và chạy lại với Ollama bật.
 
 ## 2. Huấn luyện mô hình & chạy Thí nghiệm 1 (Google Colab hoặc máy cục bộ)
 

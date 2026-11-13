@@ -11,8 +11,8 @@
         "Vết đốm có quầng vàng hẹp, mặt dưới lá hơi gồ hoặc bóng"
       ],
       "treatments": [
-        {"ingredient": "copper_hydroxide", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu khuyến nông BVTV cà chua"},
-        {"ingredient": "kasugamycin", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu khuyến nông BVTV cà chua"}
+        {"ingredient": "copper_hydroxide", "dose": "1.0–1.5 kg/ha (pha 25–30g/bình 16L, theo nhãn thương phẩm 77WP đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Quy trình IPM cà chua - Cục BVTV"},
+        {"ingredient": "kasugamycin", "dose": "1.0–1.5 lít/ha (pha 25–35ml/bình 16L, theo nhãn thương phẩm 2SL đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Quy trình IPM cà chua - Cục BVTV"}
       ]
     },
     {
@@ -26,9 +26,9 @@
         "Bắt đầu từ lá già phía dưới rồi lan dần lên trên"
       ],
       "treatments": [
-        {"ingredient": "mancozeb", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
-        {"ingredient": "azoxystrobin", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
-        {"ingredient": "chlorothalonil", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"}
+        {"ingredient": "mancozeb", "dose": "2.0–2.5 kg/ha (pha 40–50g/bình 16L, theo nhãn thương phẩm 80WP đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Cẩm nang khuyến nông cà chua - VAAS"},
+        {"ingredient": "azoxystrobin", "dose": "0.5–0.8 lít/ha (pha 10–15ml/bình 16L, theo nhãn thương phẩm 250SC đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Cẩm nang khuyến nông cà chua - VAAS"},
+        {"ingredient": "chlorothalonil", "dose": "1.5–2.0 kg/ha (pha 30–40g/bình 16L, theo nhãn thương phẩm 75WP đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Cẩm nang khuyến nông cà chua - VAAS"}
       ]
     },
     {
@@ -42,9 +42,9 @@
         "Mặt dưới vết bệnh có lớp tơ mốc trắng xám khi trời ẩm"
       ],
       "treatments": [
-        {"ingredient": "mancozeb", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
-        {"ingredient": "metalaxyl", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
-        {"ingredient": "cymoxanil", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"}
+        {"ingredient": "mancozeb", "dose": "2.0–2.5 kg/ha (pha 40–50g/bình 16L, theo nhãn thương phẩm 80WP đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Cẩm nang khuyến nông cà chua - VAAS"},
+        {"ingredient": "metalaxyl", "dose": "1.0–1.5 kg/ha (dùng dạng phối hợp theo nhãn thương phẩm đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Khuyến cáo quản lý nấm Phytophthora - Cục BVTV"},
+        {"ingredient": "cymoxanil", "dose": "1.0–1.2 kg/ha (dùng dạng phối hợp theo nhãn thương phẩm đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Khuyến cáo quản lý nấm Phytophthora - Cục BVTV"}
       ]
     },
     {
@@ -58,8 +58,8 @@
         "Mặt dưới lá tương ứng có lớp nấm mốc màu xanh ô-liu hoặc nâu nhung"
       ],
       "treatments": [
-        {"ingredient": "chlorothalonil", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu BVTV nhà màng"},
-        {"ingredient": "difenoconazole", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu BVTV nhà màng"}
+        {"ingredient": "chlorothalonil", "dose": "1.5–2.0 kg/ha (pha 30–40g/bình 16L, theo nhãn thương phẩm 75WP đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Tài liệu BVTV nhà màng - FAVRI"},
+        {"ingredient": "difenoconazole", "dose": "0.4–0.6 lít/ha (pha 8–12ml/bình 16L, theo nhãn thương phẩm 250EC đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Tài liệu BVTV cà chua - FAVRI"}
       ]
     },
     {
@@ -73,8 +73,8 @@
         "Chính giữa tâm xám có các chấm đen li ti (ổ bào tử nấm)"
       ],
       "treatments": [
-        {"ingredient": "mancozeb", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"},
-        {"ingredient": "chlorothalonil", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Cẩm nang khuyến nông cà chua"}
+        {"ingredient": "mancozeb", "dose": "2.0–2.5 kg/ha (pha 40–50g/bình 16L, theo nhãn thương phẩm 80WP đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Cẩm nang khuyến nông cà chua - VAAS"},
+        {"ingredient": "chlorothalonil", "dose": "1.5–2.0 kg/ha (pha 30–40g/bình 16L, theo nhãn thương phẩm 75WP đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Cẩm nang khuyến nông cà chua - VAAS"}
       ]
     },
     {
@@ -88,8 +88,8 @@
         "Mặt dưới lá có tơ mỏng và nhện nhỏ li ti di chuyển"
       ],
       "treatments": [
-        {"ingredient": "abamectin", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Khuyến nông phòng trừ nhện hại rau"},
-        {"ingredient": "pyridaben", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Khuyến nông phòng trừ nhện hại rau"}
+        {"ingredient": "abamectin", "dose": "0.4–0.6 lít/ha (pha 8–12ml/bình 16L, theo nhãn thương phẩm 1.8EC đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Khuyến nông phòng trừ nhện hại rau - Cục BVTV"},
+        {"ingredient": "pyridaben", "dose": "0.5–0.8 kg/ha (pha 12–16g/bình 16L, theo nhãn thương phẩm 15WP đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Khuyến nông phòng trừ nhện hại rau - Cục BVTV"}
       ]
     },
     {
@@ -103,8 +103,8 @@
         "Gây vết lõm nâu đen nứt nẻ trên cả quả xanh và quả chín"
       ],
       "treatments": [
-        {"ingredient": "azoxystrobin", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu BVTV cà chua"},
-        {"ingredient": "difenoconazole", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT & Tài liệu BVTV cà chua"}
+        {"ingredient": "azoxystrobin", "dose": "0.5–0.8 lít/ha (pha 10–15ml/bình 16L, theo nhãn thương phẩm 250SC đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Tài liệu BVTV cà chua - FAVRI"},
+        {"ingredient": "difenoconazole", "dose": "0.4–0.6 lít/ha (pha 8–12ml/bình 16L, theo nhãn thương phẩm 250EC đăng ký)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Tài liệu BVTV cà chua - FAVRI"}
       ]
     },
     {
@@ -118,8 +118,8 @@
         "Cây chùn đọt, lóng ngắn, hầu như không đậu quả"
       ],
       "treatments": [
-        {"ingredient": "imidacloprid", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT (trừ bọ phấn trắng môi giới)"},
-        {"ingredient": "pymetrozine", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT (trừ bọ phấn trắng môi giới)"}
+        {"ingredient": "imidacloprid", "dose": "0.2–0.3 kg/ha (pha 4–6g/bình 16L, theo nhãn thương phẩm 70WG/10WP đăng ký trừ bọ phấn/rệp môi giới)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Quy trình phòng trừ bệnh virus hại cà chua - VAAS"},
+        {"ingredient": "pymetrozine", "dose": "0.3–0.4 kg/ha (pha 8–10g/bình 16L, theo nhãn thương phẩm 50WG đăng ký trừ bọ phấn môi giới)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Quy trình phòng trừ bệnh virus hại cà chua - VAAS"}
       ]
     },
     {
@@ -133,7 +133,7 @@
         "Lá non biến dạng, nhăn nheo hoặc thu hẹp dạng lá dương xỉ"
       ],
       "treatments": [
-        {"ingredient": "imidacloprid", "dose": null, "phi_days": 7, "source": "Danh mục thuốc BVTV Bộ NN&PTNT (kiểm soát côn trùng chích hút hỗ trợ)"}
+        {"ingredient": "imidacloprid", "dose": "0.2–0.3 kg/ha (pha 4–6g/bình 16L, theo nhãn thương phẩm 70WG/10WP đăng ký trừ bọ phấn/rệp môi giới)", "phi_days": 7, "source": "Thông tư 25/2024/TT-BNNPTNT & Quy trình phòng trừ bệnh virus hại cà chua - VAAS"}
       ]
     },
     {
@@ -147,18 +147,18 @@
     }
   ],
   "ingredients": [
-    {"id": "mancozeb", "name": "Mancozeb", "classes": ["fungicide"], "toxicity_group": "IV", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "metalaxyl", "name": "Metalaxyl", "classes": ["fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "cymoxanil", "name": "Cymoxanil", "classes": ["fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "chlorothalonil", "name": "Chlorothalonil", "classes": ["fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "azoxystrobin", "name": "Azoxystrobin", "classes": ["fungicide"], "toxicity_group": "IV", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "difenoconazole", "name": "Difenoconazole", "classes": ["fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "copper_hydroxide", "name": "Copper hydroxide", "classes": ["bactericide", "fungicide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "kasugamycin", "name": "Kasugamycin", "classes": ["bactericide"], "toxicity_group": "IV", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "abamectin", "name": "Abamectin", "classes": ["acaricide", "insecticide"], "toxicity_group": "II", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "pyridaben", "name": "Pyridaben", "classes": ["acaricide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "imidacloprid", "name": "Imidacloprid", "classes": ["insecticide"], "toxicity_group": "III", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"},
-    {"id": "pymetrozine", "name": "Pymetrozine", "classes": ["insecticide"], "toxicity_group": "IV", "source": "Danh mục thuốc BVTV Bộ NN&PTNT"}
+    {"id": "mancozeb", "name": "Mancozeb", "classes": ["fungicide"], "toxicity_group": "IV", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "metalaxyl", "name": "Metalaxyl", "classes": ["fungicide"], "toxicity_group": "III", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "cymoxanil", "name": "Cymoxanil", "classes": ["fungicide"], "toxicity_group": "III", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "chlorothalonil", "name": "Chlorothalonil", "classes": ["fungicide"], "toxicity_group": "III", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "azoxystrobin", "name": "Azoxystrobin", "classes": ["fungicide"], "toxicity_group": "IV", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "difenoconazole", "name": "Difenoconazole", "classes": ["fungicide"], "toxicity_group": "III", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "copper_hydroxide", "name": "Copper hydroxide", "classes": ["bactericide", "fungicide"], "toxicity_group": "III", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "kasugamycin", "name": "Kasugamycin", "classes": ["bactericide"], "toxicity_group": "IV", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "abamectin", "name": "Abamectin", "classes": ["acaricide", "insecticide"], "toxicity_group": "II", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "pyridaben", "name": "Pyridaben", "classes": ["acaricide"], "toxicity_group": "III", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "imidacloprid", "name": "Imidacloprid", "classes": ["insecticide"], "toxicity_group": "III", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"},
+    {"id": "pymetrozine", "name": "Pymetrozine", "classes": ["insecticide"], "toxicity_group": "IV", "source": "Thông tư 25/2024/TT-BNNPTNT (Phụ lục I - Danh mục thuốc BVTV được phép sử dụng tại Việt Nam)"}
   ],
   "contraindications": [
     {

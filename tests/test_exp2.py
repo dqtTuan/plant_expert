@@ -1,3 +1,4 @@
+import plant_expert  # noqa: F401
 import numpy as np
 import pandas as pd
 import pytest

@@ -87,3 +87,13 @@ def test_random_strategy_uses_rng_and_never_repeats():
         seen.append(s)
         st = answer(st, s, "unknown", L5)
     assert len(seen) == 3
+
+
+def test_gated_requires_at_least_one_question_when_renorm_exceeds_conf():
+    p = np.array([0.60, 0.08, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04])
+    L_10 = np.tile(np.linspace(0.1, 0.9, 10), (2, 1))
+    st = start(p, H=1.5, tau=0.5)
+    assert st.post.max() >= 0.85
+    assert is_done(st) is False
+    assert final(st)[2] is False
+    assert next_question(st, L_10) is not None

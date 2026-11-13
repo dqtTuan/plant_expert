@@ -102,3 +102,19 @@ def test_index_roundtrip(tmp_path):
     hits = idx2.search("Mancozeb trị mốc sương", k=2, embed=fake_embed)
     assert len(hits) == 2
     assert all(isinstance(h, str) for h in hits)
+
+
+def test_advise_offline_fallback(kg, tmp_path):
+    mdir = tmp_path / "manual"
+    mdir.mkdir()
+    (mdir / "Late_blight.md").write_text("Mốc sương do Phytophthora.\n\nDùng Mancozeb.", encoding="utf-8")
+    idx = VectorIndex.build(str(mdir), embed=fake_embed)
+    G = build_graph(kg)
+
+    def boom(_prompt: str) -> str:
+        raise OllamaError("offline")
+
+    res = advise("Cách trị?", "Late_blight", kg, G, idx, mode="graph", generate=boom, embed=fake_embed, allow_fallback=True)
+    assert res["fallback"] is True
+    assert "Cảnh báo chống chỉ định" in res["answer"]
+    assert "Mancozeb" in res["answer"]
