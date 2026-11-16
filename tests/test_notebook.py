@@ -68,8 +68,11 @@ def test_notebook_recovers_incomplete_plantvillage_checkout(tmp_path, monkeypatc
         assert len({label for _, label in namespace[split]}) == 10
 
 
-@pytest.mark.parametrize("mount", ["plantvillage-dataset", "datasets/abdallahalidev/plantvillage-dataset"])
-def test_notebook_prefers_attached_kaggle_dataset(tmp_path, monkeypatch, mount):
+@pytest.mark.parametrize("village_mount, doc_mount", [
+    ("plantvillage-dataset", "plant-doc-dataset"),
+    ("datasets/abdallahalidev/plantvillage-dataset", "datasets/abdulhasibuddin/plant-doc-dataset"),
+])
+def test_notebook_loads_both_kaggle_datasets(tmp_path, monkeypatch, village_mount, doc_mount):
     nb = json.loads(NB_PATH.read_text(encoding="utf-8"))
     sources = ["".join(cell["source"]) for cell in nb["cells"]]
     source = next(src for src in sources if "PV_MAP =" in src)
@@ -77,8 +80,11 @@ def test_notebook_prefers_attached_kaggle_dataset(tmp_path, monkeypatch, mount):
                           and isinstance(node.targets[0], ast.Name) and node.targets[0].id == "PV_MAP")
     monkeypatch.chdir(tmp_path)
     Path("data/PlantVillage-Dataset/raw/color").mkdir(parents=True)
-    Path("data/PlantDoc-Dataset").mkdir()
-    color = tmp_path / "input" / mount / "color"
+    color = tmp_path / "input" / village_mount / "color"
+    plantdoc = tmp_path / "input" / doc_mount / "PlantDoc-Dataset"
+    test_leaf = plantdoc / "test/Tomato leaf/leaf.jpg"
+    test_leaf.parent.mkdir(parents=True)
+    test_leaf.touch()
     for folder in ast.literal_eval(map_assignment.value):
         path = color / folder
         path.mkdir(parents=True)
@@ -94,5 +100,6 @@ def test_notebook_prefers_attached_kaggle_dataset(tmp_path, monkeypatch, mount):
 
     git.assert_not_called()
     assert result["pv_color"] == color
+    assert result["pd_items"] == [(str(test_leaf), "healthy")]
     assert sum(len(result[split]) for split in ("train_items", "val_items", "test_items")) == 200
 
