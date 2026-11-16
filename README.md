@@ -33,7 +33,7 @@ Lệnh này tạo sẵn `artifacts/` khởi tạo, ảnh lá mẫu trong `sample
 2. Notebook tự động tải PlantVillage (10 lớp cà chua) + PlantDoc, huấn luyện `ConvNeXt-Tiny` có lớp Dropout, chạy Thí nghiệm 1 (`Softmax`, `Temperature Scaling`, `MC Dropout` với `T=20`) và nén toàn bộ kết quả thành `artifacts.zip`.
 3. Giải nén `artifacts.zip` vào thư mục `artifacts/` ở gốc dự án (gồm `model.pt`, `config.json`, `test_mc_probs.csv`, `exp1_metrics.csv`, và 3 biểu đồ `.png`).
 
-Trên Kaggle, import notebook, bật **GPU** và dùng **Add Input** để gắn [PlantVillage của emmarex](https://www.kaggle.com/datasets/emmarex/plantdisease) và [PlantDoc của abdulhasibuddin](https://www.kaggle.com/datasets/abdulhasibuddin/plant-doc-dataset). Notebook cũng hỗ trợ [PlantVillage của abdallahalidev](https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset). Bật **Internet** cho lượt huấn luyện đầy đủ để tải trọng số ConvNeXt-Tiny.
+Trên Kaggle, import notebook, bật **GPU** và **Internet**, rồi chạy. Nếu chưa gắn dataset, notebook dùng KaggleHub để gắn [PlantVillage của emmarex](https://www.kaggle.com/datasets/emmarex/plantdisease) và [PlantDoc của abdulhasibuddin](https://www.kaggle.com/datasets/abdulhasibuddin/plant-doc-dataset). Bạn cũng có thể dùng **Add Input** để gắn trước hai bộ này hoặc dùng [PlantVillage của abdallahalidev](https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset). Lượt huấn luyện đầy đủ cần Internet để tải trọng số ConvNeXt-Tiny.
 
 ## 3. Chạy Thí nghiệm 2 (Active Bayesian Questioning)
 

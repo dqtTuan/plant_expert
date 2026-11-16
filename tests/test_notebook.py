@@ -1,7 +1,8 @@
 import ast
 import json
+import sys
 from pathlib import Path
-from unittest.mock import Mock
+from unittest.mock import Mock, call
 
 import pytest
 from sklearn.model_selection import train_test_split
@@ -68,12 +69,13 @@ def test_notebook_recovers_incomplete_plantvillage_checkout(tmp_path, monkeypatc
         assert len({label for _, label in namespace[split]}) == 10
 
 
-@pytest.mark.parametrize("village_mount, doc_mount", [
-    ("plantvillage-dataset/color", "plant-doc-dataset"),
-    ("datasets/abdallahalidev/plantvillage-dataset/color", "datasets/abdulhasibuddin/plant-doc-dataset"),
-    ("datasets/emmarex/plantdisease/PlantVillage", "datasets/abdulhasibuddin/plant-doc-dataset"),
+@pytest.mark.parametrize("village_mount, doc_mount, auto_attach", [
+    ("plantvillage-dataset/color", "plant-doc-dataset", False),
+    ("datasets/abdallahalidev/plantvillage-dataset/color", "datasets/abdulhasibuddin/plant-doc-dataset", False),
+    ("datasets/emmarex/plantdisease/PlantVillage", "datasets/abdulhasibuddin/plant-doc-dataset", False),
+    ("plantdisease/PlantVillage", "plant-doc-dataset", True),
 ])
-def test_notebook_loads_both_kaggle_datasets(tmp_path, monkeypatch, village_mount, doc_mount):
+def test_notebook_loads_both_kaggle_datasets(tmp_path, monkeypatch, village_mount, doc_mount, auto_attach):
     nb = json.loads(NB_PATH.read_text(encoding="utf-8"))
     sources = ["".join(cell["source"]) for cell in nb["cells"]]
     source = next(src for src in sources if "PV_MAP =" in src)
@@ -81,8 +83,11 @@ def test_notebook_loads_both_kaggle_datasets(tmp_path, monkeypatch, village_moun
                           and isinstance(node.targets[0], ast.Name) and node.targets[0].id == "PV_MAP")
     monkeypatch.chdir(tmp_path)
     Path("data/PlantVillage-Dataset/raw/color").mkdir(parents=True)
-    color = tmp_path / "input" / village_mount
-    plantdoc = tmp_path / "input" / doc_mount / "PlantDoc-Dataset"
+    kaggle_input = tmp_path / "input"
+    (kaggle_input / "notebooks/tanishqraina/plantvillage").mkdir(parents=True)
+    data_root = tmp_path / "cache" if auto_attach else kaggle_input
+    color = data_root / village_mount
+    plantdoc = data_root / doc_mount / "PlantDoc-Dataset"
     test_leaf = plantdoc / "test/Tomato leaf/leaf.jpg"
     test_leaf.parent.mkdir(parents=True)
     test_leaf.touch()
@@ -93,7 +98,8 @@ def test_notebook_loads_both_kaggle_datasets(tmp_path, monkeypatch, village_moun
             "Tomato_Septoria_leaf_spot", "Tomato_Spider_mites_Two_spotted_spider_mite", "Tomato__Target_Spot",
             "Tomato__Tomato_YellowLeaf__Curl_Virus", "Tomato__Tomato_mosaic_virus", "Tomato_healthy",
         ]
-        (tmp_path / "input/plantvillage-dataset/color").mkdir(parents=True)
+        if not auto_attach:
+            (kaggle_input / "plantvillage-dataset/color").mkdir(parents=True)
     for folder in folders:
         path = color / folder
         path.mkdir(parents=True)
@@ -101,13 +107,17 @@ def test_notebook_loads_both_kaggle_datasets(tmp_path, monkeypatch, village_moun
             (path / f"{i}.JPG").touch()
 
     git = Mock()
+    download = Mock(side_effect=[str(color.parent), str(plantdoc.parent)])
+    monkeypatch.setitem(sys.modules, "kagglehub", Mock(dataset_download=download))
     result = dict(
-        Path=lambda value: tmp_path / "input" if value == "/kaggle/input" else Path(value),
+        Path=lambda value: kaggle_input if value == "/kaggle/input" else Path(value),
         subprocess=Mock(run=git), train_test_split=train_test_split, SMOKE=True, SEED=42,
     )
     exec(source, result)
 
     git.assert_not_called()
+    expected_downloads = [call("emmarex/plantdisease"), call("abdulhasibuddin/plant-doc-dataset")]
+    assert download.call_args_list == (expected_downloads if auto_attach else [])
     assert result["pv_color"] == color
     assert result["pd_items"] == [(str(test_leaf), "healthy")]
     assert sum(len(result[split]) for split in ("train_items", "val_items", "test_items")) == 200
