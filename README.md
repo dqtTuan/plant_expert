@@ -33,6 +33,8 @@ Lệnh này tạo sẵn `artifacts/` khởi tạo, ảnh lá mẫu trong `sample
 2. Notebook tự động tải PlantVillage (10 lớp cà chua) + PlantDoc, huấn luyện `ConvNeXt-Tiny` có lớp Dropout, chạy Thí nghiệm 1 (`Softmax`, `Temperature Scaling`, `MC Dropout` với `T=20`) và nén toàn bộ kết quả thành `artifacts.zip`.
 3. Giải nén `artifacts.zip` vào thư mục `artifacts/` ở gốc dự án (gồm `model.pt`, `config.json`, `test_mc_probs.csv`, `exp1_metrics.csv`, và 3 biểu đồ `.png`).
 
+Trên Kaggle, import notebook, bật **GPU** và **Internet**, rồi chọn **Add Input** để gắn [PlantVillage Dataset của abdallahalidev](https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset). Notebook ưu tiên đọc ảnh màu từ bộ dữ liệu đã gắn. Internet được dùng để tải PlantDoc và trọng số ConvNeXt-Tiny.
+
 ## 3. Chạy Thí nghiệm 2 (Active Bayesian Questioning)
 
 ```powershell

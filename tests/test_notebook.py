@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from unittest.mock import Mock
 
+import pytest
 from sklearn.model_selection import train_test_split
 
 NB_PATH = Path("notebooks/train_uncertainty.ipynb")
@@ -65,4 +66,33 @@ def test_notebook_recovers_incomplete_plantvillage_checkout(tmp_path, monkeypatc
     git.assert_called_once()
     for split in ("train_items", "val_items", "test_items"):
         assert len({label for _, label in namespace[split]}) == 10
+
+
+@pytest.mark.parametrize("mount", ["plantvillage-dataset", "datasets/abdallahalidev/plantvillage-dataset"])
+def test_notebook_prefers_attached_kaggle_dataset(tmp_path, monkeypatch, mount):
+    nb = json.loads(NB_PATH.read_text(encoding="utf-8"))
+    sources = ["".join(cell["source"]) for cell in nb["cells"]]
+    source = next(src for src in sources if "PV_MAP =" in src)
+    map_assignment = next(node for node in ast.parse(source).body if isinstance(node, ast.Assign)
+                          and isinstance(node.targets[0], ast.Name) and node.targets[0].id == "PV_MAP")
+    monkeypatch.chdir(tmp_path)
+    Path("data/PlantVillage-Dataset/raw/color").mkdir(parents=True)
+    Path("data/PlantDoc-Dataset").mkdir()
+    color = tmp_path / "input" / mount / "color"
+    for folder in ast.literal_eval(map_assignment.value):
+        path = color / folder
+        path.mkdir(parents=True)
+        for i in range(20):
+            (path / f"{i}.JPG").touch()
+
+    git = Mock()
+    result = dict(
+        Path=lambda value: tmp_path / "input" if value == "/kaggle/input" else Path(value),
+        subprocess=Mock(run=git), train_test_split=train_test_split, SMOKE=True, SEED=42,
+    )
+    exec(source, result)
+
+    git.assert_not_called()
+    assert result["pv_color"] == color
+    assert sum(len(result[split]) for split in ("train_items", "val_items", "test_items")) == 200
 
