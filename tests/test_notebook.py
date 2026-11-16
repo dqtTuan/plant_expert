@@ -69,8 +69,9 @@ def test_notebook_recovers_incomplete_plantvillage_checkout(tmp_path, monkeypatc
 
 
 @pytest.mark.parametrize("village_mount, doc_mount", [
-    ("plantvillage-dataset", "plant-doc-dataset"),
-    ("datasets/abdallahalidev/plantvillage-dataset", "datasets/abdulhasibuddin/plant-doc-dataset"),
+    ("plantvillage-dataset/color", "plant-doc-dataset"),
+    ("datasets/abdallahalidev/plantvillage-dataset/color", "datasets/abdulhasibuddin/plant-doc-dataset"),
+    ("datasets/emmarex/plantdisease/PlantVillage", "datasets/abdulhasibuddin/plant-doc-dataset"),
 ])
 def test_notebook_loads_both_kaggle_datasets(tmp_path, monkeypatch, village_mount, doc_mount):
     nb = json.loads(NB_PATH.read_text(encoding="utf-8"))
@@ -80,12 +81,20 @@ def test_notebook_loads_both_kaggle_datasets(tmp_path, monkeypatch, village_moun
                           and isinstance(node.targets[0], ast.Name) and node.targets[0].id == "PV_MAP")
     monkeypatch.chdir(tmp_path)
     Path("data/PlantVillage-Dataset/raw/color").mkdir(parents=True)
-    color = tmp_path / "input" / village_mount / "color"
+    color = tmp_path / "input" / village_mount
     plantdoc = tmp_path / "input" / doc_mount / "PlantDoc-Dataset"
     test_leaf = plantdoc / "test/Tomato leaf/leaf.jpg"
     test_leaf.parent.mkdir(parents=True)
     test_leaf.touch()
-    for folder in ast.literal_eval(map_assignment.value):
+    folders = ast.literal_eval(map_assignment.value)
+    if color.name == "PlantVillage":
+        folders = [
+            "Tomato_Bacterial_spot", "Tomato_Early_blight", "Tomato_Late_blight", "Tomato_Leaf_Mold",
+            "Tomato_Septoria_leaf_spot", "Tomato_Spider_mites_Two_spotted_spider_mite", "Tomato__Target_Spot",
+            "Tomato__Tomato_YellowLeaf__Curl_Virus", "Tomato__Tomato_mosaic_virus", "Tomato_healthy",
+        ]
+        (tmp_path / "input/plantvillage-dataset/color").mkdir(parents=True)
+    for folder in folders:
         path = color / folder
         path.mkdir(parents=True)
         for i in range(20):
