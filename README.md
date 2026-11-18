@@ -60,7 +60,7 @@ Kết quả được lưu tại `experiments/out/exp3_summary.csv` và `experime
 ## 5. Chạy giao diện Web Demo 2 khung (Streamlit)
 
 ```powershell
-.venv\Scripts\streamlit run app.py
+.venv\Scripts\python -m streamlit run app.py
 ```
 
 ## 6. Chạy bộ kiểm thử tự động (Pytest)
